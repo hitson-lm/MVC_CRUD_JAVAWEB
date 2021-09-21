@@ -37,7 +37,7 @@ public class guardarEmpleado extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             // 1) obtener los parametros que vienen por parte del formulario.
-
+                // requeste.getParameter(): Se utiliza para recoger parametros enviados por una peticion get o post. Por ejemplo: String 
             String nom = request.getParameter("txtNombre"); //almacenamos en la variable, los datos ingresados por el formulario.
             String direc = request.getParameter("txtDireccion");
             

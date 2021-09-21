@@ -9,7 +9,12 @@
     </head>
 
     <body>
-        <div class="container mt-5">
+        <div class="container mt-3">
+            <h1>
+                Registrar Empleado
+            </h1>
+        </div>
+        <div class="container mt-2">
 
             <form action="guardarEmpleado" method="post" name="registroEmpleado"> <!-- con el atributo "action" mandamos el formulario al Controlador "guardarEmpleado", tambien escoges el tipo de metodo, post o get. -->
                 <div class="form-group">

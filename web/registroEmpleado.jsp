@@ -4,6 +4,9 @@
     Author     : Hitson Lapa Marcelo
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="MODELO.Empleado"%>
+<%@page import="MODELO.AccionesEmpleado"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,35 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Registro existoso</h1><br>
-        <a href="index.jsp">Regresar al menu principal</a>
+        <div class="container mt-4">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRES</th>
+                        <th scope="col">DIRECCION</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        ArrayList<Empleado> listaEmpleados = AccionesEmpleado.listarTodolosEmpleados(); // llamo a la funcion "listarTodolosEmpleados" a partir de la clase "AccionesEmpleado"
+                        
+                        // Ahorra recorremos todo los objetos de la lista. con un FOR
+                        for (Empleado e : listaEmpleados) { // recorre desde el Empleado e Hasta el tañamo de la lista.
+                            
+                    %>         
+                    <tr>
+                        <th scope="row"><%= e.getId()%></th> <!-- obtenemos el "id" del objeto Empleado e -->
+                        <td><%= e.getNombres()%></td>       <!-- obtenemos el atributo "nombres" del objeto Empleado e -->
+                        <td><%= e.getDireccion()%></td>     <!-- obtenemos el atributo "direccion" del objeto Empleado e -->
+                        
+                    </tr>
+                    
+                </tbody>
+                <%}%>
+            </table>
+        </div>
+
     </body>
 </html>
