@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Page in produccion</title>
     </head>
     <body>
         <h1>Sitio en modo de produccion</h1><br>

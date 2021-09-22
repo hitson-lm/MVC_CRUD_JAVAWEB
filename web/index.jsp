@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>Page principal</title>
     </head>
 
     <body>
@@ -30,7 +30,9 @@
                     <input type="submit" name="accion" value="Registrar">
                 </div>
                 <div>
-                    <a href="registroEmpleado.jsp">registro de empleados</a>
+                    <br>
+                    <a class="btn btn-danger" href="registroEmpleado.jsp"> consultar registro de empleados</a>
+                    
                 </div>
             </form>
 

@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>Page Registro Empleados</title>
     </head>
     <body>
         <div class="container mt-4">
@@ -44,13 +44,14 @@
                             <a class="btn btn-warning" href="editarEmpleado.jsp?id=<%= e.getId()%>">editar</a> <!-- para editar un objeto empleado, primero tenemos que buscar el objeto empleado, para ello necesitamos el parametro de "id" 
                             otra cosa mas, cuando se hace esta interface(accion)->editar solo se muestra una vista (editarEmpleado.jsp) -->
                             
-                            <a class="btn btn-danger" href="borrarEmpleado?id=<%=e.getId()%>">borrar</a> <!--En estes caso la accion borrar "no es una vista" (ES UN PROCESO) Por ende se manda al controlador "borrarEmpleado" -- |parametro "id"|-->
+                            <a class="btn btn-danger" href="borrarEmpleado?id=<%=e.getId()%>">borrar</a> <!--En este caso la accion borrar "no es una vista" (ES UN PROCESO) Por ende se manda al controlador "borrarEmpleado" -- |parametro "id"|-->
                         </td>
                     </tr>
                     
                 </tbody>
                 <%}%>
             </table>
+            <a class="btn btn-danger" href="index.jsp">Regresar al menu principal</a>
         </div>
 
     </body>
