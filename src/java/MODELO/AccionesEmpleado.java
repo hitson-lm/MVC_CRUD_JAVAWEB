@@ -107,7 +107,7 @@ public class AccionesEmpleado {
         
         try {
             Connection con=Conexion.conectar(); //llamamos la funcion conectar(), para hacer la conexion previa.
-            String sql = "select from empleados where idempleado=?"; // establecemos la consulta para luego prepararlo
+            String sql = "select * from empleados where idempleado=?"; // establecemos la consulta para luego prepararlo
             
             // prepara y establece la sentencia sql
             PreparedStatement ps = con.prepareStatement(sql);
