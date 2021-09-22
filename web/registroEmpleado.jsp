@@ -17,12 +17,13 @@
     </head>
     <body>
         <div class="container mt-4">
-            <table class="table table-dark">
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NOMBRES</th>
-                        <th scope="col">DIRECCION</th>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">NOMBRES</th>
+                        <th class="text-center" scope="col">DIRECCION</th>
+                        <th class="text-center" scope="col">ACIONES</th>
                         
                     </tr>
                 </thead>
@@ -35,10 +36,13 @@
                             
                     %>         
                     <tr>
-                        <th scope="row"><%= e.getId()%></th> <!-- obtenemos el "id" del objeto Empleado e -->
-                        <td><%= e.getNombres()%></td>       <!-- obtenemos el atributo "nombres" del objeto Empleado e -->
-                        <td><%= e.getDireccion()%></td>     <!-- obtenemos el atributo "direccion" del objeto Empleado e -->
-                        
+                        <th class="text-center" scope="row"><%= e.getId()%></th> <!-- obtenemos el "id" del objeto Empleado e -->
+                        <td class="text-center" ><%= e.getNombres()%></td>       <!-- obtenemos el atributo "nombres" del objeto Empleado e -->
+                        <td class="text-center" ><%= e.getDireccion()%></td>     <!-- obtenemos el atributo "direccion" del objeto Empleado e -->
+                        <td class="text-center" >
+                            <a class="btn btn-warning" href="">editar</a> 
+                            <a class="btn btn-danger" href="">borrar</a> 
+                        </td>
                     </tr>
                     
                 </tbody>

@@ -25,7 +25,7 @@ public class AccionesEmpleado {
     registrarEmpleado ->  Empleado e  (requiere del parametro del objeto empleado) porque el usuario va interactuar con todo los campos.
     actualizarEmpleado -> Empleado e (requiere del parametro del objeto empleado) porque el usuario va interactuar con todo los campos.
     eliminarEmpleado ->   int id       (solo requiere del parametro id) no interactua con todo los campos 
-    buscarEmpleados ->    int id        (solo requiere del parametro id) no interactua con todo los campos 
+    buscarEmpleado ->    int id        (solo requiere del parametro id) no interactua con todo los campos 
     ListarTodoslosEmpleados ->(ningun parametro)     (Esta funcion debe retornar un Arraylista de un tipo de objeto ArrayList<tipo_de_dato> ) porque es capas de manipular diferentes tipos de dato. y es dinamico.   
     verificarUsuario ->   String user,pass
     
