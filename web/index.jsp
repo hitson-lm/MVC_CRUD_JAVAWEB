@@ -29,6 +29,9 @@
                 <div>
                     <input type="submit" name="accion" value="Registrar">
                 </div>
+                <div>
+                    <a href="registroEmpleado.jsp">registro de empleados</a>
+                </div>
             </form>
 
         </div>

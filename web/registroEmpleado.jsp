@@ -39,9 +39,12 @@
                         <th class="text-center" scope="row"><%= e.getId()%></th> <!-- obtenemos el "id" del objeto Empleado e -->
                         <td class="text-center" ><%= e.getNombres()%></td>       <!-- obtenemos el atributo "nombres" del objeto Empleado e -->
                         <td class="text-center" ><%= e.getDireccion()%></td>     <!-- obtenemos el atributo "direccion" del objeto Empleado e -->
+                        
                         <td class="text-center" >
-                            <a class="btn btn-warning" href="">editar</a> 
-                            <a class="btn btn-danger" href="">borrar</a> 
+                            <a class="btn btn-warning" href="editarEmpleado.jsp?id=<%= e.getId()%>">editar</a> <!-- para editar un objeto empleado, primero tenemos que buscar el objeto empleado, para ello necesitamos el parametro de "id" 
+                            otra cosa mas, cuando se hace esta interface(accion)->editar solo se muestra una vista (editarEmpleado.jsp) -->
+                            
+                            <a class="btn btn-danger" href="borrarEmpleado?id=<%=e.getId()%>">borrar</a> <!--En estes caso la accion borrar "no es una vista" (ES UN PROCESO) Por ende se manda al controlador "borrarEmpleado" -- |parametro "id"|-->
                         </td>
                     </tr>
                     

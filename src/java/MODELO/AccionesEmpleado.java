@@ -25,7 +25,7 @@ public class AccionesEmpleado {
     registrarEmpleado ->  Empleado e  (requiere del parametro del objeto empleado) porque el usuario va interactuar con todo los campos.
     actualizarEmpleado -> Empleado e (requiere del parametro del objeto empleado) porque el usuario va interactuar con todo los campos.
     eliminarEmpleado ->   int id       (solo requiere del parametro id) no interactua con todo los campos 
-    buscarEmpleado ->    int id        (solo requiere del parametro id) no interactua con todo los campos 
+    buscarEmpleados ->    int id        (solo requiere del parametro id) no interactua con todo los campos 
     ListarTodoslosEmpleados ->(ningun parametro)     (Esta funcion debe retornar un Arraylista de un tipo de objeto ArrayList<tipo_de_dato> ) porque es capas de manipular diferentes tipos de dato. y es dinamico.   
     verificarUsuario ->   String user,pass
     
@@ -57,8 +57,7 @@ public class AccionesEmpleado {
         
         
     }
-    
-    
+      
     public static ArrayList<Empleado> listarTodolosEmpleados(){   //funcion de tipo "ArrayList" para retornar todo los empleados.
         //Crea un ArrayList objeto llamado "listaEmpleados" que almacenará objetos de tipo "Empleado":
         ArrayList<Empleado> listaEmpleados = new ArrayList<Empleado>();
@@ -100,6 +99,39 @@ public class AccionesEmpleado {
         }
         return listaEmpleados;
            
+    }
+    
+    public static Empleado buscarEmpleado(int id){   //funcion de tipo "Empleado".(buscaremos por el "id" una vez encontrado esto retornará un objeto de tipo Empleado, con todo los campos)
+        //instanciamos el objeto empleado.
+        Empleado e = new Empleado();
+        
+        try {
+            Connection con=Conexion.conectar(); //llamamos la funcion conectar(), para hacer la conexion previa.
+            String sql = "select from empleados where idempleado=?"; // establecemos la consulta para luego prepararlo
+            
+            // prepara y establece la sentencia sql
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            //PARAMETROS QUE REQUIERE LA FUNCION para buscar empleado
+            ps.setInt(1,id); // se establece el identificador como parametro esto se hace para asignarle el valor al signo --> "?" | idempleado=? | de la consulta SQL
+            
+            // Use executeQuery()
+            // Este método se utiliza para ejecutar una instrucción SELECT, que es casi la instrucción SQL más utilizada.
+            ResultSet rs = ps.executeQuery(); //executeQuery te arroja una tabla con lo datos, pero no te lee los contenidos de las tuplas o filas. porque su cursor esta en la fila "0"
+            
+            if(rs.next()){ // para que el cursor pase de la fila "0" a la fila 1. usaremos | rs.next() | 
+                
+                e.setId(rs.getInt(1));      // obtenemos el dato de la bd de la (columna "1" o "idempleado" - FILA 1) y luego se le establece el dato al obejto empleado. 
+                e.setNombres(rs.getString(2)); // obtenemos el dato de la bd de la (columna "2" o "nomEmpleado" - FILA 1) y luego se le establece el dato al obejto empleado.
+                e.setDireccion(rs.getString(3));           // obtenemos el dato de la bd de la (columna "3" o "direcEmpleado" - FILA 1) y luego se le establece el dato al obejto empleado.
+                
+            }
+            System.out.println("Empleado encontrado!!!");
+            
+        } catch (Exception ed) {
+            System.out.println("Error!! empleado no encontrado "+ed);
+        }
+        return e;   
     }
     
     public static int actualizarEmpleado(Empleado e){   //funcion de tipo "int" porque vamos verificar si lo hace o no lo hace.
@@ -151,35 +183,4 @@ public class AccionesEmpleado {
         return estatus;   
     }
     
-    public static Empleado buscarEmpleado(int id){   //funcion de tipo "Empleado".(buscaremos por el "id" una vez encontrado esto retornará un objeto de tipo Empleado, con todo los campos)
-        //instanciamos el objeto empleado.
-        Empleado e = new Empleado();
-        
-        try {
-            Connection con=Conexion.conectar(); //llamamos la funcion conectar(), para hacer la conexion previa.
-            String sql = "select from empleados where idempleado=?"; // establecemos la consulta para luego prepararlo
-            
-            // prepara y establece la sentencia sql
-            PreparedStatement ps = con.prepareStatement(sql);
-            
-            //PARAMETROS QUE REQUIERE LA FUNCION para buscar empleado
-            ps.setInt(1,id); // se establece el identificador como parametro esto se hace para asignarle el valor al signo --> "?" | idempleado=? | de la consulta SQL
-            
-            // Use executeQuery()
-            // Este método se utiliza para ejecutar una instrucción SELECT, que es casi la instrucción SQL más utilizada.
-            ResultSet rs = ps.executeQuery(); //executeQuery te arroja una tabla con lo datos, pero no te lee los contenidos de las tuplas o filas. porque su cursor esta en la fila "0"
-            
-            if(rs.next()){ // para que el cursor pase de la fila "0" a la fila 1. usaremos | rs.next() | 
-                
-                e.setId(rs.getInt(1));      // obtenemos el dato de la bd de la (columna "1" o "idempleado" - FILA 1) y luego se le establece el dato al obejto empleado. 
-                e.setNombres(rs.getString("nomEmpleado")); // obtenemos el dato de la bd de la (columna "2" o "nomEmpleado" - FILA 1) y luego se le establece el dato al obejto empleado.
-                e.setDireccion(rs.getString(3));           // obtenemos el dato de la bd de la (columna "3" o "direcEmpleado" - FILA 1) y luego se le establece el dato al obejto empleado.
-            }
-            System.out.println("Empleado encontrado!!!");
-            
-        } catch (Exception ed) {
-            System.out.println("Error!! empleado no encontrado "+ed);
-        }
-        return e;   
-    }
 }
